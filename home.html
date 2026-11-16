@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-slate-50 border-b border-slate-200 py-14 lg:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+    <div class="lg:col-span-6 flex flex-col justify-center">
+      <p class="text-sm font-semibold text-forest-light mb-3">
+        Pimpinan Cabang Muhammadiyah · Dakwah & Amal Usaha
+      </p>
+      <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-slate-900 leading-tight mb-5">
+        {{ profil.judul_utama_beranda|default:"Dakwah Berkemajuan, Menggerakkan Amal Usaha untuk Umat" }}
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
+        {{ profil.subjudul_beranda|default:"Menghadirkan layanan pendidikan, dakwah pencerahan, pemberdayaan sosial, serta ketahanan pangan dan gizi masyarakat secara amanah dan transparan." }}
+      </p>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="#pengajian" class="px-6 py-3.5 bg-gold hover:bg-gold-hover text-slate-950 font-bold text-sm rounded-xl transition-colors inline-flex items-center gap-2">
+          <i class="fa-solid fa-play"></i> Lihat Jadwal Pengajian
+        </a>
+        <a href="#amal-usaha" class="px-6 py-3.5 bg-forest hover:bg-forest-light text-white font-semibold text-sm rounded-xl transition-colors inline-flex items-center gap-2">
+          <i class="fa-solid fa-compass"></i> Jelajahi Program
+        </a>
+      </div>
+    </div>
+    <div class="lg:col-span-6">
+      <div class="h-full min-h-[300px] rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+        {% if profil.foto_sampul_beranda %}
+          <img src="{{ profil.foto_sampul_beranda.url }}" alt="{{ profil.nama_cabang }}" class="w-full h-full object-cover" />
+        {% else %}
+          <div class="w-full h-full bg-forest/10 flex flex-col items-center justify-center p-8 text-center text-forest">
+            <i class="fa-solid fa-mosque text-5xl mb-3"></i>
+            <p class="font-display font-semibold text-lg">Pusat Dakwah {{ profil.nama_cabang|default:"PCM" }}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+</section>
+{% endblock %}
